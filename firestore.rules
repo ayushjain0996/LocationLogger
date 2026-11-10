@@ -1,0 +1,19 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Each phone signs in anonymously and can only touch its own sessions.
+    match /sessions/{sessionId} {
+      allow create: if request.auth != null
+                    && request.resource.data.owner == request.auth.uid;
+      allow read, update: if request.auth != null
+                          && resource.data.owner == request.auth.uid;
+
+      match /points/{pointId} {
+        allow create, update: if request.auth != null
+                              && request.resource.data.owner == request.auth.uid;
+        allow read: if request.auth != null
+                    && resource.data.owner == request.auth.uid;
+      }
+    }
+  }
+}

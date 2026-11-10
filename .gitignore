@@ -1,0 +1,8 @@
+xcuserdata/
+*.xcuserstate
+DerivedData/
+build/
+.DS_Store
+
+# Firebase app config (download your own from the Firebase console)
+GoogleService-Info.plist
