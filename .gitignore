@@ -4,5 +4,9 @@ DerivedData/
 build/
 .DS_Store
 
-# Firebase app config (download your own from the Firebase console)
+service-account*.json
+*-firebase-adminsdk-*.json
+dublin_roads.geojson
+
+# Firebase app config
 GoogleService-Info.plist
